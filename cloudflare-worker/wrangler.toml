@@ -1,0 +1,17 @@
+name = "tempmail-email-worker"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Email routing is configured via Cloudflare Dashboard:
+# 1. Go to your domain > Email > Email Routing > Routing Rules
+# 2. Add a catch-all rule or specific addresses
+# 3. Point them to this worker
+#
+# Environment variables (set via `wrangler secret put`):
+# WEBHOOK_URL    - Your Supabase Edge Function URL (e.g., https://xxx.supabase.co/functions/v1/email-webhook)
+# WEBHOOK_SECRET - Shared secret for authenticating webhook requests (optional)
+
+[vars]
+# Do NOT put secrets here. Use `wrangler secret put WEBHOOK_URL` and `wrangler secret put WEBHOOK_SECRET`
+# WEBHOOK_URL = "https://your-project.supabase.co/functions/v1/email-webhook"
